@@ -1,26 +1,35 @@
 <template>
-  <div class="hello">
-    <h2>Estudios</h2>
+  <section class="Estudios">
+    <h1>Estudios</h1>
     <ul>
-      <li>
-        <p>En curso:</p>
-        <p>Ing. Informática - 5to Semestre</p>
-        <p>UNIR (Universidad Internacional de la Rioja)</p>
-      </li>
-      <li>
-        <p>Otros estudios:</p>
-        <p>Ing. Civil - Pregrado</p>
-        <p>UPB (Universidad Pontificia Bolivariana)</p>
+      <li v-for="study in studies" :key="study.study">
+        <h2>{{ study.study }}</h2>
+        <p>{{ study.description }}</p>
+        <p>{{ study.institution }}</p>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "Estudios",
-  props: {
-    msg: String,
+  props: {},
+  data() {
+    return {
+      studies: [
+        {
+          study: "En Curso: ",
+          description: "Ing. Informática - 5to Semestre",
+          institution: "UNIR (Universidad Internacional de la Rioja)",
+        },
+        {
+          study: "Otros estudios: ",
+          description: "Ing. Civil - Pregrado",
+          institution: "UPB (Universidad Pontificia Bolivariana)",
+        },
+      ],
+    };
   },
 };
 </script>
